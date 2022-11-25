@@ -599,6 +599,7 @@ ul {
 
 .cnt02_sub:nth-child(2) .more_btn:hover {
   background-color: #00A75D;
+  border: 2px solid #000;
 }
 
 .cnt02_sub:nth-child(2) .more_btn:hover a{
@@ -615,6 +616,7 @@ ul {
 
 .cnt02_sub:nth-child(3) .more_btn:hover {
   background-color: #EB6D65;
+  border: 2px solid #000;
 }
 
 .cnt02_sub:nth-child(3) .more_btn:hover a{
