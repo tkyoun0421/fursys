@@ -33,112 +33,121 @@ const $bg = document.querySelector(".bg");
 let winWidth = window.innerWidth;
 let winHeight = window.innerHeight;
 
-window.addEventListener("resize", function() {
-  winWidth = window.innerWidth;
-  winHeight = window.innerHeight;
-  
-  $pinSpacer.style.width = winWidth + "px";
-  $pinSpacer.style.maxWidth = winWidth + "px";
-  $pinSpacer.style.height = winHeight * 6 + "px";
-  $pinSpacer.style.inset = "0px 0px " + winHeight + "px";
-  $pinSpacer.style.paddingBottom = (winHeight * 6) / 2 + "px";
-  $cnt01Container.style.width = winWidth + "px";
-  $cnt01Container.style.maxWidth = winWidth + "px";
-  $cnt01Container.style.height = winHeight * 3 + "px";
-  $cnt01Container.style.maxHeight = winHeight * 3 + "px";
-  $cnt01Container.style.inset = "0px auto auto 0px";
-});
-
 window.onload = function(){
-  winWidth = window.innerWidth;
-  winHeight = window.innerHeight;
-  
-  $pinSpacer.style.width = winWidth + "px";
-  $pinSpacer.style.height = winHeight * 6 + "px";
-  $pinSpacer.style.inset = "0px 0px " + winHeight + "px";
-  $pinSpacer.style.paddingBottom = (winHeight * 6) / 2 + "px";
-  $cnt01Container.style.width = winWidth + "px";
-  $cnt01Container.style.height = winHeight + "px";
-  $cnt01Container.style.inset = "0px auto auto 0px";
-
   setTimeout(AddClassShow, 1000);
 }
 
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function() {
+  const cnt01Viewprot = $cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight;
+  let scrolled = window.scrollY;
+  let ratio = ((window.scrollY + $mask.offsetTop - $mask.offsetHeight) / $mask.offsetHeight) * 15;
   winHeight = window.innerHeight;
-  scroll = window.scrollY;
 
+  console.log("scroll:" + scrolled);
+  console.log("ratio: " + cnt01Viewprot );
+  // console.log("컨텐츠1 끝나는 뷰포트 높이: " + cnt01Viewprot * 0.3);
+  
+  if (ratio < 1) {
+    ratio = 1;
+  }
 
-  let ratio = (window.scrollY - $cnt01Wrap.offsetTop) / 75;
-  let opacityRatio = (window.innerHeight) / (window.scrollY *2);  
-
-
-  if (scroll > $cnt01Wrap.offsetTop && scroll < ($cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight) * 0.4){
+  if (scrolled <= $cnt01Wrap.offsetTop) {
+    $cnt01Container.style.position = "";
+    $cnt01Container.style.top = "0";
+    $cnt01Container.style.left = "0";
+  } else if (scrolled >= $cnt01Wrap.offsetTop && scrolled <= cnt01Viewprot * 0.3) {
     $cnt01Container.style.position = "fixed";
-    
-    if (ratio <= 1 ) {
-      ratio = 1
-    } else if (ratio >= 20) {
-      ratio = 20;
-    }    
-    $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`
-    $cnt01Container.style.top = "0px";
-    $cnt01Container.style.left = "0px";
-    $mask.style.transform = `scale(${ratio.toFixed(2)}, ${ratio.toFixed(2)})` + "translate3d(0px, 0px, 0px)";  
-    $mask.style.transformOrigin = "50% 40%";
-    $mask.style.display = "flex";
-    $mask.style.opacity = 1;    
-  }
-
-  if (ratio > 7) {
-    $mask.style.opacity = opacityRatio;
-  }
-
-  if (scroll >= ($cnt02Wrap.offsetTop) * 0.3) {
+    $mask.style.transform =  `translate3d(0px, 0px, 0px) scale(${ratio}, ${ratio})`;
+    $mask.style.opacity = 1;
+  } else if (scrolled >= cnt01Viewprot * 0.3 && scrolled <= cnt01Viewprot * 0.4) {
+    let opacityRatio = (window.scrollY + $mask.offsetTop - $mask.offsetHeight) / $mask.offsetHeight; 
+    $mask.style.opacity = (1 - opacityRatio.toFixed(3));   
+  } else if (scrolled >= cnt01Viewprot * 0.4 && scrolled <= cnt01Viewprot * 0.5) {
+    $mask.style.opacity = 0;    
     $cnt01Wrap.classList.remove("show");
-  }
-
-  if (scroll >= ($cnt02Wrap.offsetTop) * 0.4) {
-    if ($cnt01Wrap.classList.contains("show") != true) {
-      $cnt01Wrap.classList.add("show");    
-    }
-  }
-
-  if (scroll >= ($cnt02Wrap.offsetTop) * 0.5) {
-    $mask.style.opacity = 0;
-  }
-});
-
-window.addEventListener("scroll", function() {
-  scroll = window.scrollY;
-  winHeight = window.innerHeight;
-
-
-  if (scroll >= $cnt02Wrap.offsetTop * 0.8) {
-    $mask.style.display = "none";
-    $cnt01Container.style.height = `${winHeight * 3}px`;
-    $cnt01Container.style.position = "";    
-    $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`;    
-  } else if (scroll > $cnt01Wrap.offsetTop && scroll <= ($cnt02Wrap.offsetTop) * 0.8) {
-    $cnt01Container.style.position = "fixed"; 
+  } else if (scrolled >= cnt01Viewprot * 0.5 && scrolled <= cnt01Viewprot * 0.6) {
+    $cnt01Wrap.classList.add("show");
+  } else if (scrolled >= cnt01Viewprot * 0.7 && scrolled <= cnt01Viewprot * 0.8) {
+    $cnt01Container.style.position = "fixed";
     $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`;
+  } else if (scrolled >= cnt01Viewprot * 0.8 && scrolled <= cnt01Viewprot * 0.9) {
+    $cnt01Container.style.position = "";    
+    $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`;
   }
+  
+  
 });
 
-window.addEventListener("scroll", function() {
-  scroll = window.scrollY;
-  if (scroll > $videoWrap.offsetTop && scroll < $cnt01Wrap.offsetTop) {
-    $cnt01Container.style.position = "absolute";
-  }
-});
+// window.addEventListener("scroll", function(){
+//   scroll = window.scrollY;
+//   winHeight = window.innerHeight;
 
 
-let scroll = window.scrollY;
-window.addEventListener("scroll", function(){
-  if (scroll > $videoWrap.offsetTop + $videoWrap.offsetHeight ) {  
-    setTimeout(AddClassShow, 1000);   
-  }
-});
+//   let ratio = (window.scrollY - $cnt01Wrap.offsetTop) / 75;
+//   let opacityRatio = (window.innerHeight) / (window.scrollY *2);  
+
+
+//   if (scroll > $cnt01Wrap.offsetTop && scroll < ($cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight) * 0.4){
+//     $cnt01Container.style.position = "fixed";
+    
+//     if (ratio <= 1 ) {
+//       ratio = 1
+//     } else if (ratio >= 20) {
+//       ratio = 20;
+//     }
+//     $mask.style.transform =  `translate3d(0px, 0px, 0px) scale(${ratio.toFixed(2)}, ${ratio.toFixed(2)})`;  
+//     $mask.style.transformOrigin = "50% 40%";
+//     $mask.style.display = "flex";
+//     $mask.style.opacity = 1;    
+//   }
+
+//   if (ratio > 7) {
+//     $mask.style.opacity = opacityRatio;
+//   }
+
+//   if (scroll >= ($cnt02Wrap.offsetTop) * 0.3) {
+//     $cnt01Wrap.classList.remove("show");
+//   }
+
+//   if (scroll >= ($cnt02Wrap.offsetTop) * 0.4) {
+//     if ($cnt01Wrap.classList.contains("show") != true) {
+//       $cnt01Wrap.classList.add("show");    
+//     }
+//   }
+
+//   if (scroll >= ($cnt02Wrap.offsetTop) * 0.5) {
+//     $mask.style.opacity = 0;
+//   }
+// });
+
+// window.addEventListener("scroll", function() {
+//   scroll = window.scrollY;
+//   winHeight = window.innerHeight;
+
+
+//   if (scroll >= $cnt02Wrap.offsetTop * 0.8) {
+//     $mask.style.display = "none";
+//     $cnt01Container.style.height = `${winHeight * 3}px`;
+//     $cnt01Container.style.position = "";    
+//     $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`;    
+//   } else if (scroll > $cnt01Wrap.offsetTop && scroll <= ($cnt02Wrap.offsetTop) * 0.8) {
+//     $cnt01Container.style.position = "fixed"; 
+//     $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`;
+//   }
+// });
+
+// window.addEventListener("scroll", function() {
+//   scroll = window.scrollY;
+//   if (scroll > $videoWrap.offsetTop && scroll < $cnt01Wrap.offsetTop) {
+//     $cnt01Container.style.position = "absolute";
+//   }
+// });
+
+// window.addEventListener("scroll", function(){
+//   if (scroll > $videoWrap.offsetTop + $videoWrap.offsetHeight ) {  
+//     setTimeout(AddClassShow, 1000);   
+//   }
+// });
 
 
 function ani(i) {
