@@ -414,3 +414,22 @@ ul {
   text-align: center;
   font-family: 'Alexandria', sans-serif;
 }
+
+.cnt01_wrap .bg .line {
+  overflow: hidden;
+}
+
+.cnt01_wrap .bg .block {
+  transform: translateY(100%);
+}
+
+.cnt01_wrap .bg .line:nth-child(1) .block {
+  transition: transform 0.5s .2s ease;
+}
+.cnt01_wrap .bg .line:nth-child(2) .block{
+  transition: transform 0.5s .4s ease;
+}
+
+.cnt01_wrap.show .bg .block {
+  transform: translateY(0%);
+}

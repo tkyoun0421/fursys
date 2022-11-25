@@ -36,13 +36,8 @@ let winHeight = window.innerHeight;
 window.addEventListener("resize", function() {
   winWidth = window.innerWidth;
   winHeight = window.innerHeight;
-
-  console.log(winWidth);
   
   $pinSpacer.style.width = winWidth + "px";
-  $pinSpacer.style.display = "block";
-  $pinSpacer.style.flexShrink = 1;
-  $pinSpacer.style.float = "none";
   $pinSpacer.style.maxWidth = winWidth + "px";
   $pinSpacer.style.height = winHeight * 6 + "px";
   $pinSpacer.style.inset = "0px 0px " + winHeight + "px";
@@ -63,7 +58,7 @@ window.onload = function(){
   $pinSpacer.style.inset = "0px 0px " + winHeight + "px";
   $pinSpacer.style.paddingBottom = (winHeight * 6) / 2 + "px";
   $cnt01Container.style.width = winWidth + "px";
-  $cnt01Container.style.height = winHeight * 3 + "px";
+  $cnt01Container.style.height = winHeight + "px";
   $cnt01Container.style.inset = "0px auto auto 0px";
 
   setTimeout(AddClassShow, 1000);
@@ -72,11 +67,13 @@ window.onload = function(){
 window.addEventListener("scroll", function(){
   winHeight = window.innerHeight;
   scroll = window.scrollY;
+
+
   let ratio = (window.scrollY - $cnt01Wrap.offsetTop) / 75;
   let opacityRatio = (window.innerHeight) / (window.scrollY *2);  
-  console.log(scroll);
 
-  if (scroll > $cnt01Wrap.offsetTop && scroll < ($cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight) * 0.6){
+
+  if (scroll > $cnt01Wrap.offsetTop && scroll < ($cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight) * 0.4){
     $cnt01Container.style.position = "fixed";
     
     if (ratio <= 1 ) {
@@ -85,20 +82,29 @@ window.addEventListener("scroll", function(){
       ratio = 20;
     }    
     $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`
-    $cnt01Container.style.top = 0;
-    $cnt01Container.style.left = 0;
+    $cnt01Container.style.top = "0px";
+    $cnt01Container.style.left = "0px";
     $mask.style.transform = `scale(${ratio.toFixed(2)}, ${ratio.toFixed(2)})` + "translate3d(0px, 0px, 0px)";  
     $mask.style.transformOrigin = "50% 40%";
     $mask.style.display = "flex";
-    $mask.style.opacity = 1;
-    $bg.classList.remove("show");
+    $mask.style.opacity = 1;    
   }
 
-  if (ratio > 8) {
+  if (ratio > 7) {
     $mask.style.opacity = opacityRatio;
   }
 
+  if (scroll >= ($cnt02Wrap.offsetTop) * 0.3) {
+    $cnt01Wrap.classList.remove("show");
+  }
+
   if (scroll >= ($cnt02Wrap.offsetTop) * 0.4) {
+    if ($cnt01Wrap.classList.contains("show") != true) {
+      $cnt01Wrap.classList.add("show");    
+    }
+  }
+
+  if (scroll >= ($cnt02Wrap.offsetTop) * 0.5) {
     $mask.style.opacity = 0;
   }
 });
@@ -107,12 +113,15 @@ window.addEventListener("scroll", function() {
   scroll = window.scrollY;
   winHeight = window.innerHeight;
 
-  if (scroll >= ($cnt02Wrap.offsetTop) * 0.75) {
-    $cnt01Container.style.top = "";
-    $cnt01Container.style.left = "";
+
+  if (scroll >= $cnt02Wrap.offsetTop * 0.8) {
     $mask.style.display = "none";
-    $cnt01Container.style.position = "";
-    $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`
+    $cnt01Container.style.height = `${winHeight * 3}px`;
+    $cnt01Container.style.position = "";    
+    $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`;    
+  } else if (scroll > $cnt01Wrap.offsetTop && scroll <= ($cnt02Wrap.offsetTop) * 0.8) {
+    $cnt01Container.style.position = "fixed"; 
+    $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`;
   }
 });
 
