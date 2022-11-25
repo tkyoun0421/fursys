@@ -35,7 +35,7 @@ let winHeight = 0;
 
 window.onload = function(){
   setTimeout(AddClassShow, 1000);
-  // setTimeout(toTop, 100);
+  setTimeout(toTop, 100);
 }
 
 window.addEventListener("scroll", scrolledHeader);
@@ -85,10 +85,13 @@ function scrolledCnt01() {
     ratio = 1;
   }
 
-  if (scrolled <= $cnt01Wrap.offsetTop) {
+  if (scrolled >= $videoWrap.offsetTop &&scrolled <= $cnt01Wrap.offsetTop) {
     $cnt01Container.style.position = "";
     $cnt01Container.style.top = "0";
     $cnt01Container.style.left = "0";
+    $cnt01Container.style.transform = `translate3d(0, 0, 0)`;
+    $mask.style.opacity = 1;
+    $mask.style.transform = "scale(1, 1)";
   } else if (scrolled >= $cnt01Wrap.offsetTop && scrolled <= cnt01Viewprot * 0.3) {
     $cnt01Container.style.position = "fixed";
     $mask.style.transform =  `translate3d(0px, 0px, 0px) scale(${ratio}, ${ratio})`;
