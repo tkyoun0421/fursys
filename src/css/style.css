@@ -473,7 +473,7 @@ ul {
 /* cnt02 */
 .cnt02_sub {
   width: 80%;
-  max-width: 1920px;
+  max-width: 1440px;
   height: 1080px;
   margin: 0 auto;
   display: flex;
@@ -513,14 +513,17 @@ ul {
 
 .cnt02_01.show .block {
   transform: translateY(0%);
+  opacity: 1;
 }
 
 .cnt02_02.show .block {
   transform: translateY(0%);
+  opacity: 1;
 }
 
 .cnt02_03.show .block {
   transform: translateY(0%);
+  opacity: 1;
 }
 
 .subtitle_wrap .block {
@@ -528,6 +531,7 @@ ul {
   font-weight: 900;
   padding-right: 15px;
   transform: translateY(100%);
+  opacity: 0;
 }
 
 .subtitle_wrap .block01 {
@@ -636,7 +640,7 @@ ul {
 
 .guide_wrap {
   width: 80%;
-  max-width: 1920px;
+  max-width: 1440px;
   height: 100vh;
   margin: 0 auto;
   display: flex;

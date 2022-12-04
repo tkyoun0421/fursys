@@ -113,6 +113,7 @@ function scrolledCnt01() {
   }  
 }
 
+
 function scrolledCnt02() {
   const $cnt02Sub = document.querySelectorAll(".cnt02_sub");
   winHeight = window.innerHeight;
