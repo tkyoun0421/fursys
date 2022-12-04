@@ -386,7 +386,7 @@ ul {
   overflow: hidden;
 }
 
-.pin_spacer {
+.pin-spacer {
   position: absolute;
   width: 100%;
   max-width: 100%;
@@ -693,13 +693,13 @@ ul {
   width: 100%;
 }
 
-.guide-wrap .des_text {
+.guide-wrap .des-text {
   font-size: clamp(0.8125rem, 1.0417vw, 1rem);
   font-weight: 700;
   margin-top: 28px;
 }
 
-.guide-wrap .des_text strong {
+.guide-wrap .des-text strong {
   font-weight: 900;
   text-decoration: underline;
 }
