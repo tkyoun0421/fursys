@@ -77,7 +77,7 @@ function scrolledHeader() {
 
 function scrolledCnt01() {
   const cnt01Viewprot = $cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight;
-  const scrolled = window.scrollY;
+  const scrolled = window.pageYOffset;
   let ratio = ((window.scrollY + $mask.offsetTop - $mask.offsetHeight) / $mask.offsetHeight) * 15;
   winHeight = window.innerHeight;
   

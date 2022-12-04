@@ -627,15 +627,6 @@ ul {
   color: #fff;
 }
 
-.cnt02-wrap .right img {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-  object-position: center center;
-  border-radius: 25px;
-  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
-}
-
 /* guide-wrap */
 
 .guide-wrap {
@@ -879,7 +870,7 @@ ul {
 }
 
 .guide-wrap .right .slide-wrap{
-  width: 800px;
+  width: 50%;
   height: auto;
   overflow: hidden;
   border: 2px solid #000;
