@@ -1,5 +1,5 @@
 // menu창 오픈
-const $menuBtn = document.querySelector(".menu_btn");
+const $menuBtn = document.querySelector(".menu-btn");
 const $menu = document.querySelector(".menu");
 const $menuBlock = document.querySelectorAll(".menu .block");
 
@@ -12,7 +12,7 @@ function openMenu() {
 }
 
 // menu창 닫기
-const $closeBtn = document.querySelector(".close_btn");
+const $closeBtn = document.querySelector(".close-btn");
 
 $closeBtn.addEventListener("click", closeMenu);
 
@@ -21,13 +21,13 @@ function closeMenu() {
 }
 
 // 스크롤 이벤트
-const $videoWrap = document.querySelector(".video_wrap");
-const $videoWrapBlock = document.querySelectorAll(".video_wrap .block");
-const $videoWrapSpan = document.querySelectorAll(".video_wrap span");
-const $cnt01Wrap = document.querySelector(".cnt01_wrap");
-const $cnt02Wrap = document.querySelector(".cnt02_wrap");
-const $pinSpacer = document.querySelector(".pin_spacer");
-const $cnt01Container = document.querySelector(".cnt01_wrap .container");
+const $videoWrap = document.querySelector(".video-wrap");
+const $videoWrapBlock = document.querySelectorAll(".video-wrap .block");
+const $videoWrapSpan = document.querySelectorAll(".video-wrap span");
+const $cnt01Wrap = document.querySelector(".cnt01-wrap");
+const $cnt02Wrap = document.querySelector(".cnt02-wrap");
+const $pinSpacer = document.querySelector(".pin-spacer");
+const $cnt01Container = document.querySelector(".cnt01-wrap .container");
 const $mask = document.querySelector(".mask");
 const $bg = document.querySelector(".bg");
 let winWidth = 0;
@@ -47,8 +47,8 @@ window.addEventListener("scroll", scrolledCnt02);
 window.addEventListener("scroll", scrolledGuide);
 
 function scrolledHeader() {
-  const changeColorPoint = document.querySelector(".cnt02_wrap").getBoundingClientRect().top;
-  const $menuBtn = document.querySelector(".menu_btn");
+  const changeColorPoint = document.querySelector(".cnt02-wrap").getBoundingClientRect().top;
+  const $menuBtn = document.querySelector(".menu-btn");
   const $headerText = document.querySelector(".header .text");
   const $logo = document.querySelector(".logo");
   scrolled = window.scrollY;
@@ -115,7 +115,7 @@ function scrolledCnt01() {
 
 
 function scrolledCnt02() {
-  const $cnt02Sub = document.querySelectorAll(".cnt02_sub");
+  const $cnt02Sub = document.querySelectorAll(".cnt02-sub");
   winHeight = window.innerHeight;
 
   $cnt02Sub.forEach(function(item) {
@@ -130,7 +130,7 @@ function scrolledCnt02() {
 }
 
 function scrolledGuide() {
-  const $guideWrap = document.querySelector(".guide_wrap");
+  const $guideWrap = document.querySelector(".guide-wrap");
   const changeColorPoint = $guideWrap.getBoundingClientRect().top;
 
   if (changeColorPoint <= winHeight) {
