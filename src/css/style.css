@@ -906,3 +906,29 @@ ul {
 .slide-dot li.now {
   background: #000;
 }
+
+/* footer */
+.footer-wrap {
+  background-color: #000;
+}
+
+.footer-wrap .container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-wrap .left {
+  padding: 40px 30% 120px 0;
+  opacity: 0.5;
+  border-right: 1px solid #fff;
+}
+
+.footer-wrap .right {
+  padding: 40px 0 120px;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.5;
+}
