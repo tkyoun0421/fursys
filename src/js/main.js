@@ -28,6 +28,10 @@ const $cnt01Wrap = document.querySelector(".cnt01-wrap");
 const $cnt02Wrap = document.querySelector(".cnt02-wrap");
 const $pinSpacer = document.querySelector(".pin-spacer");
 const $cnt01Container = document.querySelector(".cnt01-wrap .container");
+const checkPoint01 = document.querySelector(".cp-01");
+const checkPoint02 = document.querySelector(".cp-02");
+const checkPoint03 = document.querySelector(".cp-03");
+const checkPoint04 = document.querySelector(".cp-04");
 const $mask = document.querySelector(".mask");
 const $bg = document.querySelector(".bg");
 let winWidth = 0;
@@ -76,40 +80,26 @@ function scrolledHeader() {
 }
 
 function scrolledCnt01() {
-  const cnt01Viewprot = $cnt01Wrap.offsetTop + $cnt01Wrap.offsetHeight;
   const scrolled = window.pageYOffset;
-  let ratio = ((window.scrollY + $mask.offsetTop - $mask.offsetHeight) / $mask.offsetHeight) * 15;
-  winHeight = window.innerHeight;
-  
-  if (ratio < 1) {
-    ratio = 1;
-  }
+  const opacityRatio = 1 - ((window.pageYOffset - checkPoint01.offsetTop) / checkPoint01.offsetHeight);
+  const scaleRatio = ((window.pageYOffset - checkPoint01.offsetTop) / checkPoint01.offsetHeight) * 10;
 
-  if (scrolled >= $videoWrap.offsetTop &&scrolled <= $cnt01Wrap.offsetTop) {
-    $cnt01Container.style.position = "";
-    $cnt01Container.style.top = "0";
-    $cnt01Container.style.left = "0";
-    $cnt01Container.style.transform = `translate3d(0, 0, 0)`;
+  
+  if (scrolled <= checkPoint01.offsetTop) {
+    $mask.style.transform = `scale(1, 1)`;
     $mask.style.opacity = 1;
-    $mask.style.transform = "scale(1, 1)";
-  } else if (scrolled >= $cnt01Wrap.offsetTop && scrolled <= cnt01Viewprot * 0.3) {
-    $cnt01Container.style.position = "fixed";
-    $mask.style.transform =  `translate3d(0px, 0px, 0px) scale(${ratio}, ${ratio})`;
-    $mask.style.opacity = 1;
-  } else if (scrolled >= cnt01Viewprot * 0.3 && scrolled <= cnt01Viewprot * 0.4) {
-    let opacityRatio = (window.scrollY + $mask.offsetTop - $mask.offsetHeight) / $mask.offsetHeight; 
-    $mask.style.opacity = (1 - opacityRatio.toFixed(3));   
-  } else if (scrolled >= cnt01Viewprot * 0.4 && scrolled <= cnt01Viewprot * 0.5) {
-    $mask.style.opacity = 0;    
-    $cnt01Wrap.classList.remove("show");
-  } else if (scrolled >= cnt01Viewprot * 0.5 && scrolled <= cnt01Viewprot * 0.6) {
-    $cnt01Wrap.classList.add("show");
-  } else if (scrolled >= cnt01Viewprot * 0.7 && scrolled <= cnt01Viewprot * 0.8) {
-    $cnt01Container.style.position = "fixed";
-    $cnt01Container.style.transform = `translate3d(0px, 0px, 0px)`;
-  } else if (scrolled >= cnt01Viewprot * 0.8 && scrolled <= cnt01Viewprot * 0.9) {
-    $cnt01Container.style.position = "";    
-    $cnt01Container.style.transform = `translate3d(0px, ${winHeight * 3}px, 0px)`;
+  } else if (scrolled >= checkPoint01.offsetTop && scrolled <= checkPoint02.offsetTop) {    
+    if (scaleRatio > 1) {
+      $mask.style.transform = `scale(${scaleRatio}, ${scaleRatio})`;
+      if (scaleRatio > 3) {
+        $mask.style.opacity = opacityRatio;
+      }
+    }
+  } else if (scrolled >= checkPoint02.offsetTop && scrolled <= checkPoint03.offsetTop) {
+    $mask.style.opacity = 0;
+    $bg.classList.remove("show");
+  } else if (scrolled >= checkPoint03.offsetTop && scrolled <= checkPoint04.offsetTop) {
+    $bg.classList.add("show");
   }  
 }
 

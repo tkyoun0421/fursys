@@ -11,6 +11,7 @@
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
+  touch-action: pan-y;
 }
 
 button {
@@ -379,33 +380,39 @@ ul {
 }
 
 /* cnt01 */
-.cnt01-wrap {
-  position: relative;
+.cnt01-wrap {  
   width: 100%;
-  height: 400vh;
-  overflow: hidden;
+  height: 500vh;
 }
 
 .pin-spacer {
-  position: absolute;
-  width: 100%;
-  max-width: 100%;
-  height: 600vh;
-  max-height: 600vh;
-  inset: 0px 0px 100vw 0px;
-  padding: 0px 0px calc(100vw * 6 / 2);
-  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
+.check-point {
+  width: 100%;
+  height: 100vh;
+}
+
+.cp-01 {
+  background-color: red;
+}
+
+.cp-02 {
+  background-color: yellow;
+}
+
+.cp-03 {
+  background-color: blue;
+}
+
+
 .cnt01-wrap .container {
-  width: 100vw;
-  max-width: 100vw;
-  height: 300vh;
-  max-height: 300vh;
-  position: absolute;
-  inset: 0 auto auto 0;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
   overflow: hidden;
 }
 
@@ -466,7 +473,7 @@ ul {
   transition: transform 0.5s .4s ease;
 }
 
-.cnt01-wrap.show .bg .block {
+.bg.show .block {
   transform: translateY(0%);
 }
 
