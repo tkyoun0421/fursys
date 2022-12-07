@@ -1123,15 +1123,13 @@ button {
 
 .footer-wrap .left {
   padding: 40px 30% 120px 0;
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .footer-wrap .right {
   padding: 40px 0 120px 5%;
   color: #fff;
   font-size: 13px;
-  opacity: 0.5;
+  opacity: 0.8;
   width: 100%;
-  border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
 } /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
