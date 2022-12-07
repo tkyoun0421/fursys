@@ -1,31 +1,23 @@
-// menu창 오픈
+// <-- 변수 선언 -->
+
+// menu
 const $menuBtn = document.querySelector(".menu-btn");
 const $menu = document.querySelector(".menu");
 const $menuBlock = document.querySelectorAll(".menu .block");
-
-$menuBtn.addEventListener("click", openMenu);
-
-function openMenu() {
-
-  $menu.classList.add("show");
-  
-}
-
-// menu창 닫기
 const $closeBtn = document.querySelector(".close-btn");
 
-$closeBtn.addEventListener("click", closeMenu);
+// header
+const $headerText = document.querySelector(".header .text");
+const $logo = document.querySelector(".logo");
+const $guideBtn = document.querySelector(".guide-btn");
 
-function closeMenu() {
-  $menu.classList.remove("show");
-}
-
-// 스크롤 애니메이션
+// video
 const $videoWrap = document.querySelector(".video-wrap");
 const $videoWrapBlock = document.querySelectorAll(".video-wrap .block");
 const $videoWrapSpan = document.querySelectorAll(".video-wrap span");
+
+// cnt01
 const $cnt01Wrap = document.querySelector(".cnt01-wrap");
-const $cnt02Wrap = document.querySelector(".cnt02-wrap");
 const $pinSpacer = document.querySelector(".pin-spacer");
 const $cnt01Container = document.querySelector(".cnt01-wrap .container");
 const checkPoint01 = document.querySelector(".cp-01");
@@ -37,53 +29,124 @@ const $bg = document.querySelector(".bg");
 let winWidth = 0;
 let winHeight = 0;
 
-window.onload = function(){
-  setTimeout(AddClassShow, 100);
+// cnt02
+const $cnt02Wrap = document.querySelector(".cnt02-wrap");
+
+// guide
+const $guideWrap = document.querySelector(".guide-wrap");
+const $guideSwiperBtn = document.querySelectorAll(".slide-wrap .btns a");
+const prevBtn = document.querySelector(".slide-wrap .btns .prev");
+const nextBtn = document.querySelector(".slide-wrap .btns .next");
+const $guideItemWrap = document.querySelector(".guide-wrap .item-wrap");
+const $guideSwiperItem = document.querySelectorAll(".guide-wrap .slide-wrap .item");
+const $slideDotLi = document.querySelectorAll(".slide-dot li");
+const itemWidth = document.querySelector(".slide-wrap").offsetWidth;
+const itemLength = $guideSwiperItem.length;
+let pageIndex = 0;
+let currentIndex = 0;
+
+// <-- 함수 기능 -->
+
+// <header>
+
+// 메뉴창 열기 기능
+function openMenu() {
+
+  $menu.classList.add("show");
+  
 }
 
-window.addEventListener("scroll", scrolledHeader);
+// 메뉴창 닫기 기능
+function closeMenu() {
+  $menu.classList.remove("show");
+}
 
-window.addEventListener("scroll", scrolledCnt01);
-
-window.addEventListener("scroll", scrolledCnt02);
-
-window.addEventListener("scroll", scrolledGuide);
-
+// 헤더 스크롤 애니메이션 기능
 function scrolledHeader() {
-  const changeColorPoint = document.querySelector(".cnt02-wrap").getBoundingClientRect().top;
-  const $menuBtn = document.querySelector(".menu-btn");
-  const $headerText = document.querySelector(".header .text");
-  const $logo = document.querySelector(".logo");
+  const changeColorPoint = document.querySelector(".cnt02-wrap").getBoundingClientRect().top;  
   scrolled = window.scrollY;
-
   winHeight = window.innerHeight;
 
     if (changeColorPoint < winHeight) {
-      $headerText.classList.add("black");
-      $headerText.classList.remove("white");
-      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
-      <img src="./src/img/logo_w.png" alt="">
-    </a>`
+      headerTxtClass()
+      ChangeWhiteLogo()
     } else {      
-      $headerText.classList.add("white");
-      $headerText.classList.remove("black");      
+      headerTxtClass()   
     }
 
     if (scrolled > $cnt02Wrap.offsetTop) {
-      $menuBtn.classList.add("black");
-      $menuBtn.classList.remove("white");
-      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
-      <img src="./src/img/logo_bk.png" alt="">
-    </a>`
+      menuClass()
+      ChangeBlackLogo()
     } else {
-      $menuBtn.classList.add("white");
-      $menuBtn.classList.remove("black");
-      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
-      <img src="./src/img/logo_w.png" alt="">
-    </a>`
+      menuClass()
+      ChangeWhiteLogo()
     }
 }
 
+// 검은 로고로 변경 기능
+function ChangeBlackLogo() {
+  $logo.innerHTML = 
+  `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
+  <img src="./src/img/logo_bk.png" alt="">
+  </a>`
+}
+
+// 하얀 로고로 변경 기능
+function ChangeWhiteLogo() {
+  $logo.innerHTML = 
+  `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
+  <img src="./src/img/logo_w.png" alt="">
+  </a>`
+}
+
+// 가이드 버튼 가이드 영역 도달시 삭제 기능
+function deleteGuideBtn() {
+  scrolled = window.scrollY;
+  
+  if (scrolled + window.innerHeight >= $guideWrap.offsetTop) {
+    $guideBtn.style.opacity = "0"
+  } else {
+    $guideBtn.style.opacity = "1"
+  }
+}
+
+// 헤더 택스트 칼라 클래스 추가 기능
+function headerTxtClass() {
+  $headerText.classList.add("white");
+  $headerText.classList.remove("black"); 
+}
+
+// 메뉴 색 칼라 클래스 추가 기능
+function menuClass() {
+  $menuBtn.classList.add("white");
+  $menuBtn.classList.remove("black");
+}
+
+// 비디오 텍스트 애니메이션 기능
+function ani(i) {
+  $videoWrapBlock[i].style.transform = "translateY(0%)";  
+}
+
+// 비디오 텍스트 아웃라인 클래스 추가 기능
+function addOutline(i) {
+  $videoWrapSpan[i].classList.add("outline");
+}
+
+// 비디오 텍스트 애니메이션 클래스 추가 기능
+function AddClassShow() {
+  $videoWrap.classList.add("show");
+  for(let i = 0; i < $videoWrapBlock.length; i++) {
+    setTimeout(ani, (i + 1) * 500, i);
+  }
+  for(let i = 0; i < $videoWrapSpan.length; i++) {
+    setTimeout(addOutline, 2000, i);
+  }
+}
+
+// </header>
+// <cnt01>
+
+// cnt01 스크롤 애니메이션 기능
 function scrolledCnt01() {
   const scrolled = window.pageYOffset;
   const opacityRatio = 1 - ((window.pageYOffset - checkPoint01.offsetTop) / checkPoint01.offsetHeight);
@@ -111,15 +174,16 @@ function scrolledCnt01() {
   }
 }
 
+// </cnt01>
+// <cnt02>
 
+// cnt02 스크롤 애니메이션 기능
 function scrolledCnt02() {
   const $cnt02Sub = document.querySelectorAll(".cnt02-sub");
-  const $cnt02Block = document.querySelectorAll(".cnt02-sub .right .block");
   winHeight = window.innerHeight;
 
   $cnt02Sub.forEach(function(item) {
     const itemTop = item.getBoundingClientRect().top;
-
     if (itemTop < winHeight) {
       item.classList.add("show");
     } else {
@@ -128,6 +192,10 @@ function scrolledCnt02() {
   });
 }
 
+// </cnt02>
+// <gudie>
+
+// guide 스크롤 애니메이션 기능
 function scrolledGuide() {
   const $guideWrap = document.querySelector(".guide-wrap");
   const changeColorPoint = $guideWrap.getBoundingClientRect().top;
@@ -137,23 +205,133 @@ function scrolledGuide() {
   } else {
     $guideWrap.classList.remove("show");
   }
-
 }
 
-function ani(i) {
-  $videoWrapBlock[i].style.transform = "translateY(0%)";  
-}
+// guide 슬라이드 애니메이션 기능
 
-function addOutline(i) {
-  $videoWrapSpan[i].classList.add("outline");
-}
-
-function AddClassShow() {
-  $videoWrap.classList.add("show");
-  for(let i = 0; i < $videoWrapBlock.length; i++) {
-    setTimeout(ani, (i + 1) * 500, i);
+// 무한 슬라이드 클론 요소 만들기 기능
+function makeClone() {
+  for (let i = 0; i < itemLength; i++) {
+    let cloneSlide = $guideSwiperItem[i].cloneNode(true);
+    $guideItemWrap.appendChild(cloneSlide);
   }
-  for(let i = 0; i < $videoWrapSpan.length; i++) {
-    setTimeout(addOutline, 2000, i);
+  for (let i = itemLength - 1; i >= 0; i--) {
+    let cloneSlide = $guideSwiperItem[i].cloneNode(true);
+    $guideItemWrap.prepend(cloneSlide);
+  }
+  updateWidth();
+  setInitialPosition();
+  setTimeout( () => {
+    $guideItemWrap.classList.add("animated");
+  }, 100);
+}
+
+// width 값 반응형으로 만들기 기능
+function updateWidth() {
+  const currentSlide = document.querySelectorAll(".item-wrap > div");
+  const newItemLength = currentSlide.length;
+
+  const newWidth = itemWidth * newItemLength;
+
+  $guideItemWrap.style.width = newWidth + "px";
+}
+
+// 초기 애니메이션 포지션 값 기능
+function setInitialPosition() {
+  const initialTranslateValue = -(itemWidth * itemLength) + "px";
+  $guideItemWrap.style.transform = "translateX("+ initialTranslateValue + ")";
+  $guideItemWrap.style.left = "0px";
+}
+
+// 슬라이드 기능
+function moveSlide(num) {
+  $guideItemWrap.style.left = -num * itemWidth + "px";
+  
+  currentIndex = num;
+  pageIndex = num;
+
+  deleteNowClass();  
+  bidingIndex(num);  
+
+
+  if (currentIndex == itemLength || currentIndex == -itemLength) {
+    setTimeout(function(){
+      $guideItemWrap.classList.remove("animated");
+      $guideItemWrap.style.left = "0px";
+      currentIndex = 0;
+    }, 400);
+    setTimeout(function(){
+      $guideItemWrap.classList.add("animated");
+    }, 500);
   }
 }
+
+// num index 바인딩 기능
+function bidingIndex(num) {
+  if (num >= itemLength) {
+    pageIndex = 0;
+  } else if (num < 0) {
+    pageIndex = pageIndex + itemLength;
+  } else if (num == 0) {
+    pageIndex = 0;
+  }
+  $slideDotLi[pageIndex].classList.add("now");
+}
+
+function deleteNowClass() {
+  for(let i = 0; i < itemLength; i++) {
+    $slideDotLi[i].classList.remove("now");
+  };
+}
+
+// 슬라이드 다음 버튼 기능
+function clickNextBtn() {
+  moveSlide(currentIndex + 1);
+  this.style.pointerEvents = "none";
+  setTimeout(function(){
+    nextBtn.style.pointerEvents = "auto";
+  }, 500);
+}
+
+// 슬라이드 이전 버튼 기능
+function clickPrevBtn() {
+  moveSlide(currentIndex - 1);
+  this.style.pointerEvents = "none";
+  setTimeout(function(){
+    prevBtn.style.pointerEvents = "auto";
+  }, 500);
+}
+
+// 인덱스 현재 페이지 기능
+for(let i = 0; i < itemLength; i++) {
+  $slideDotLi[i].addEventListener("click", function(){
+    moveSlide(i);
+  });  
+};
+
+// </guide>
+
+// <-- 함수 실행 -- >
+
+window.onload = function(){
+  setTimeout(AddClassShow, 100);
+  makeClone();
+}
+
+$menuBtn.addEventListener("click", openMenu);
+
+$closeBtn.addEventListener("click", closeMenu);
+
+window.addEventListener("scroll", deleteGuideBtn);
+
+window.addEventListener("scroll", scrolledHeader);
+
+window.addEventListener("scroll", scrolledCnt01);
+
+window.addEventListener("scroll", scrolledCnt02);
+
+window.addEventListener("scroll", scrolledGuide);
+
+nextBtn.addEventListener("click", clickNextBtn);
+
+prevBtn.addEventListener("click", clickPrevBtn);
