@@ -37,6 +37,7 @@ const $guideWrap = document.querySelector(".guide-wrap");
 const $guideSwiperBtn = document.querySelectorAll(".slide-wrap .btns a");
 const prevBtn = document.querySelector(".slide-wrap .btns .prev");
 const nextBtn = document.querySelector(".slide-wrap .btns .next");
+const $guideSlideWrap = document.querySelector(".guide-wrap .slide-wrap");
 const $guideItemWrap = document.querySelector(".guide-wrap .item-wrap");
 const $guideSwiperItem = document.querySelectorAll(".guide-wrap .slide-wrap .item");
 const $slideDotLi = document.querySelectorAll(".slide-dot li");
@@ -44,6 +45,10 @@ const itemWidth = document.querySelector(".slide-wrap").offsetWidth;
 const itemLength = $guideSwiperItem.length;
 let pageIndex = 0;
 let currentIndex = 0;
+
+// mobile 슬라이드
+let startPoint = 0;
+let endPoint = 0;
 
 // <-- 함수 기능 -->
 
@@ -287,18 +292,21 @@ function deleteNowClass() {
 // 슬라이드 다음 버튼 기능
 function clickNextBtn() {
   moveSlide(currentIndex + 1);
-  this.style.pointerEvents = "none";
-  setTimeout(function(){
-    nextBtn.style.pointerEvents = "auto";
-  }, 500);
+  $guideSlideWrap.style.pointerEvents = "none";
+  blockClick()
 }
 
 // 슬라이드 이전 버튼 기능
 function clickPrevBtn() {
   moveSlide(currentIndex - 1);
-  this.style.pointerEvents = "none";
+  blockClick()
+}
+
+// 슬라이드 오버클릭 막는 기능
+function blockClick() {
+  $guideSlideWrap.style.pointerEvents = "none";
   setTimeout(function(){
-    prevBtn.style.pointerEvents = "auto";
+    $guideSlideWrap.style.pointerEvents = "auto";
   }, 500);
 }
 
@@ -310,6 +318,51 @@ for(let i = 0; i < itemLength; i++) {
 };
 
 // </guide>
+
+// <-- mobile check-->
+function mobileCheck() {
+  var constmobileKeyWords = new Array("Android", "iPhone", "iPod", "BlackBerry", "Windows CE", "SAMSUNG", "LG", "MOT", "SonyEricsson");
+  for (var info in constmobileKeyWords) {
+    if (navigator.userAgent.match(constmobileKeyWords[info]) != null) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// 슬라이드 모바일 터치 기능
+if (mobileCheck()) {
+  $guideSlideWrap.addEventListener("touchstart", screenTouch, true);
+  $guideSlideWrap.addEventListener("touchend", screenTouch, true);
+}
+
+function screenTouch(event) {
+  
+  var type = null;
+  var touch = null;
+  
+  switch (event.type) {
+    case "touchstart":
+      type = "mousedown";
+      touch = event.changedTouches[0];
+      startPoint = touch.clientX;
+    break;
+
+    case "touchend":
+      type = "mouseup";
+      touch = event.changedTouches[0];
+      endPoint = touch.clientX;
+
+    const checkNum = startPoint - endPoint;
+    const checkNumAbs = Math.abs(checkNum);
+    
+    if (checkNum < 0) {
+      clickPrevBtn()
+    } else {
+      clickNextBtn()
+    }
+  }  
+}
 
 // <-- 함수 실행 -- >
 

@@ -9,8 +9,6 @@ body {
 
 button {
   background: transparent;
-  border: none;
-  cursor: pointer;
 }
 
 .ts-03s {
@@ -1017,20 +1015,21 @@ button {
   object-position: center;
 }
 
-.guide-wrap .slide-wrap .btns {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 5;
-}
-
 .guide-wrap .slide-wrap .btns button {
   width: 50px;
   height: 50px;
-  background-color: #000;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.guide-wrap .slide-wrap .btns button:nth-child(1) {
+  left: -50px
+}
+
+.guide-wrap .slide-wrap .btns button:nth-child(2) {
+  right: -50px
 }
 
 .guide-wrap .slide-dot {
