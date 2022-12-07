@@ -67,28 +67,6 @@ function closeMenu() {
   $menu.classList.remove("show");
 }
 
-// 헤더 스크롤 애니메이션 기능
-function scrolledHeader() {
-  const changeColorPoint = document.querySelector(".cnt02-wrap").getBoundingClientRect().top;  
-  scrolled = window.scrollY;
-  winHeight = window.innerHeight;
-
-    if (changeColorPoint < winHeight) {
-      headerTxtClass()
-      ChangeWhiteLogo()
-    } else {      
-      headerTxtClass()   
-    }
-
-    if (scrolled > $cnt02Wrap.offsetTop) {
-      menuClass()
-      ChangeBlackLogo()
-    } else {
-      menuClass()
-      ChangeWhiteLogo()
-    }
-}
-
 // 검은 로고로 변경 기능
 function ChangeBlackLogo() {
   $logo.innerHTML = 
@@ -105,6 +83,32 @@ function ChangeWhiteLogo() {
   </a>`
 }
 
+// 헤더 스크롤 애니메이션 기능
+function scrolledHeader() {
+  const changeColorPoint = document.querySelector(".cnt02-wrap").getBoundingClientRect().top;  
+  scrolled = window.scrollY;
+  winHeight = window.innerHeight;
+
+    if (changeColorPoint < winHeight) {
+      $headerText.classList.remove("white")
+      $headerText.classList.add("black")
+      ChangeWhiteLogo();
+    } else {      
+      $headerText.classList.remove("black");
+      $headerText.classList.add("white");
+    }
+
+    if (scrolled > $cnt02Wrap.offsetTop) {
+      $menuBtn.classList.remove("white");
+      $menuBtn.classList.add("black");
+      ChangeBlackLogo();
+    } else {
+      $menuBtn.classList.remove("black");
+      $menuBtn.classList.add("white");
+      ChangeWhiteLogo();
+    }
+}
+
 // 가이드 버튼 가이드 영역 도달시 삭제 기능
 function deleteGuideBtn() {
   scrolled = window.scrollY;
@@ -114,18 +118,6 @@ function deleteGuideBtn() {
   } else {
     $guideBtn.style.opacity = "1"
   }
-}
-
-// 헤더 택스트 칼라 클래스 추가 기능
-function headerTxtClass() {
-  $headerText.classList.add("white");
-  $headerText.classList.remove("black"); 
-}
-
-// 메뉴 색 칼라 클래스 추가 기능
-function menuClass() {
-  $menuBtn.classList.add("white");
-  $menuBtn.classList.remove("black");
 }
 
 // 비디오 텍스트 애니메이션 기능

@@ -197,13 +197,13 @@ button {
 .header .menu li:hover::after {
   opacity: 1;
   -webkit-animation-name: moveLi;
-  animation-name: moveLi;
+          animation-name: moveLi;
   -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
+          animation-timing-function: ease;
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes moveLi {
@@ -217,6 +217,7 @@ button {
     transform: translateX(0%);
   }
 }
+
 @keyframes moveLi {
   0% {
     transform: translateX(0%);
@@ -291,13 +292,13 @@ button {
 
 .header .guide-btn:hover img {
   -webkit-animation-name: move;
-  animation-name: move;
+          animation-name: move;
   -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
+          animation-timing-function: ease;
   -webkit-animation-duration: 1.2s;
-  animation-duration: 1.2s;
+          animation-duration: 1.2s;
   -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 
 .header .guide-btn:hover img:last-child {
@@ -315,6 +316,7 @@ button {
     transform: translate(0%, -50%);
   }
 }
+
 @keyframes move {
   0% {
     transform: translate(0%, -50%);
@@ -1062,9 +1064,9 @@ button {
 .guide-wrap .slide-wrap img {
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   -o-object-position: center;
-  object-position: center;
+     object-position: center;
 }
 
 .guide-wrap .slide-wrap .btns button {
@@ -1134,4 +1136,4 @@ button {
   width: 100%;
   border-right: 1px solid #fff;
   border-left: 1px solid #fff;
-} /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
