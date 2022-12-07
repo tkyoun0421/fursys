@@ -20,7 +20,7 @@ function closeMenu() {
   $menu.classList.remove("show");
 }
 
-// 스크롤 이벤트
+// 스크롤 애니메이션
 const $videoWrap = document.querySelector(".video-wrap");
 const $videoWrapBlock = document.querySelectorAll(".video-wrap .block");
 const $videoWrapSpan = document.querySelectorAll(".video-wrap span");
@@ -38,8 +38,7 @@ let winWidth = 0;
 let winHeight = 0;
 
 window.onload = function(){
-  setTimeout(AddClassShow, 1000);
-  setTimeout(toTop, 100);
+  setTimeout(AddClassShow, 100);
 }
 
 window.addEventListener("scroll", scrolledHeader);
@@ -62,7 +61,9 @@ function scrolledHeader() {
     if (changeColorPoint < winHeight) {
       $headerText.classList.add("black");
       $headerText.classList.remove("white");
-      $logo.innerHTML = `<img src="./src/img/logo_bk.png" alt="FURSYS LOGO">`
+      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
+      <img src="./src/img/logo_w.png" alt="">
+    </a>`
     } else {      
       $headerText.classList.add("white");
       $headerText.classList.remove("black");      
@@ -71,11 +72,15 @@ function scrolledHeader() {
     if (scrolled > $cnt02Wrap.offsetTop) {
       $menuBtn.classList.add("black");
       $menuBtn.classList.remove("white");
-      $logo.innerHTML = `<img src="./src/img/logo_bk.png" alt="FURSYS LOGO">`
+      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
+      <img src="./src/img/logo_bk.png" alt="">
+    </a>`
     } else {
       $menuBtn.classList.add("white");
       $menuBtn.classList.remove("black");
-      $logo.innerHTML = `<img src="./src/img/logo_w.png" alt="FURSYS LOGO">`
+      $logo.innerHTML = `<a href="index.html"><span class="blind">FURSYS 홈로고</span>
+      <img src="./src/img/logo_w.png" alt="">
+    </a>`
     }
 }
 
@@ -100,12 +105,16 @@ function scrolledCnt01() {
     $bg.classList.remove("show");
   } else if (scrolled >= checkPoint03.offsetTop && scrolled <= checkPoint04.offsetTop) {
     $bg.classList.add("show");
-  }  
+  } else {
+    $mask.style.transform = `scale(10, 10)`;
+    $mask.style.opacity = 0;
+  }
 }
 
 
 function scrolledCnt02() {
   const $cnt02Sub = document.querySelectorAll(".cnt02-sub");
+  const $cnt02Block = document.querySelectorAll(".cnt02-sub .right .block");
   winHeight = window.innerHeight;
 
   $cnt02Sub.forEach(function(item) {
@@ -147,9 +156,4 @@ function AddClassShow() {
   for(let i = 0; i < $videoWrapSpan.length; i++) {
     setTimeout(addOutline, 2000, i);
   }
-}
-
-// 새로고침시 상단으로 이동
-function toTop() {
-  scrollTo(0,0);
 }

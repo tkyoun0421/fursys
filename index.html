@@ -7,82 +7,90 @@
   <title>퍼시스 하이브리드 워크의 시작, 커뮤니티 오피스</title>
   <link rel="icon" href="./src/img/favicon-32x32.png">
   <link rel="stylesheet" href="./src/css/style.css">  
+  <!-- reset css -->
+  <link rel="stylesheet" href="./src/css/reset.css">
 </head>
 <body>
-  <main>
-    <header class="header">
-      <h1 class="logo">
-        <img src="./src/img/logo_w.png" alt="FURSYS LOGO">
-      </h1>
-      <div class="text ts-03s white">
-        THE FUTURE OF WORKPLACE
-      </div>
-      <button class="menu-btn white">
-        MENU
+  <!-- skip-nav 시작 -->
+  <div class="skip-nav">
+    <a href="#contents">본문으로 이동하기</a>
+  </div>
+  <!-- skip-nav 끝 -->
+  <!-- header 시작 -->
+  <header class="header">
+    <h1 class="logo">
+      <a href="index.html"><span class="blind">FURSYS 홈로고</span>
+        <img src="./src/img/logo_w.png" alt="">
+      </a>
+    </h1>
+    <div class="text ts-03s white">
+      THE FUTURE OF WORKPLACE
+    </div>
+    <button class="menu-btn white">
+      MENU
+      <span class="icon">
+        <img src="./src/img/menu_wh.png" alt="메뉴 버튼">
+        <img src="./src/img/menu_bk.png" alt="메뉴 버튼">
+      </span>
+    </button>
+    <nav class="menu ts-03s">
+      <button class="close-btn">
+        CLOSE
         <span class="icon">
-          <img src="./src/img/menu_wh.png" alt="메뉴 아이콘">
-          <img src="./src/img/menu_bk.png" alt="메뉴 아이콘">
+          <img src="./src/img/icon_close.png" alt="메뉴 닫기 아이콘">
         </span>
       </button>
-      <nav class="menu ts-03s">
-        <button class="close-btn">
-          CLOSE
-          <span class="icon">
-            <img src="./src/img/icon_close.png" alt="메뉴 닫기 아이콘">
-          </span>
-        </button>
-        <ul>
-          <li>
-            <div class="block">
-              <a href="#">
-                <span class="menu-name">COMMUNITY OFFICE</span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <a href="#">
-                <span class="case case01">CASE STUDY 01</span>
-                <span class="menu-name">O-PEACE JEJU</span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <a href="#">
-                <span class="case case02">CASE STUDY 02</span>
-                <span class="menu-name">HEYGROUND</span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <a href="#">
-                <span class="case case03">CASE STUDY 03</span>
-                <span class="menu-name">CAFE COMMA</span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <a href="#">
-                <span class="menu-name">REPORT DOWNLOAD</span>
-              </a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <div class="guide-btn">
-        <a href="#" class="ts-03s">
-            커뮤니티 오피스
-            <br>
-            공간 가이드 받기     
-          <img src="./src/img/icon_guide_arrow_bk.png" alt="가이드 이동 화살표" class="ts-03s">
-          <img src="./src/img/icon_guide_arrow_wh.png" alt="가이드 이동 화살표"
-          class="ts-03s">
-        </a>
-      </div>
-    </header>
+      <ul>
+        <li>
+          <div class="block">
+            <a href="#">
+              <span class="menu-name">COMMUNITY OFFICE</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="block">
+            <a href="#">
+              <span class="case case01">CASE STUDY 01</span>
+              <span class="menu-name">O-PEACE JEJU</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="block">
+            <a href="#">
+              <span class="case case02">CASE STUDY 02</span>
+              <span class="menu-name">HEYGROUND</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="block">
+            <a href="#">
+              <span class="case case03">CASE STUDY 03</span>
+              <span class="menu-name">CAFE COMMA</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="block">
+            <a href="#">
+              <span class="menu-name">REPORT DOWNLOAD</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="guide-btn">
+      <a href="#guide" class="ts-03s">
+          커뮤니티 오피스
+          <br>
+          공간 가이드 받기     
+        <img src="./src/img/icon_guide_arrow_bk.png" alt="가이드 이동 버튼" class="ts-03s">
+        <img src="./src/img/icon_guide_arrow_wh.png" alt="가이드 이동 버튼"
+        class="ts-03s">
+      </a>
+    </div>
     <section class="video-wrap">
       <div class="video">
         <video src="./src/video/fursys_main_video_1920_221013.mp4" loop autoplay muted>
@@ -107,7 +115,11 @@
         </div>
       </div>
       <div class="scroll">SCROLL DOWN</div>
-    </section>
+    </section>    
+  </header>  
+  <!-- header 끝 -->
+  <!-- contents 시작 -->
+  <main id="contents">
     <section class="cnt01-wrap">
       <div class="pin-spacer">
         <div class="container">
@@ -167,6 +179,18 @@
           </div>
         </div>
         <div class="right">
+          <div class="item">
+            <img src="./src/img/casestudy_01_pic_01.jpg" alt="숲 안에 데스크">
+            <div class="block"></div>
+          </div>
+          <div class="item">
+            <img src="./src/img/casestudy_01_pic_02.jpg" alt="여유롭게 일하는 사진">
+            <div class="block"></div>
+          </div>
+          <div class="item">
+            <img src="./src/img/casestudy_01_pic_03.jpg" alt="자연 속에 있는 직장">
+            <div class="block"></div>
+          </div>
         </div>        
       </div>
       <div class="cnt02-sub cnt02-02">
@@ -203,10 +227,16 @@
             <a href="#">헤이그라운드 사례 둘러보기</a>
           </div>
         </div>
-        <!-- <div class="right">
-          <img src="./src/img/casestudy_02_pic_01.jpg" alt="빅테이블">
-          <img src="./src/img/casestudy_02_pic_02.jpg" alt="커뮤니티 데스크">
-        </div>         -->
+        <div class="right">
+          <div class="item">
+            <img src="./src/img/casestudy_02_pic_01.jpg" alt="빅테이블">
+            <div class="block"></div>
+          </div>
+          <div class="item">
+            <img src="./src/img/casestudy_02_pic_02.jpg" alt="커뮤니티 데스크">
+            <div class="block"></div>
+          </div>
+        </div>        
       </div>
       <div class="cnt02-sub cnt02-03">
         <div class="left">
@@ -242,13 +272,19 @@
             <a href="#">카페꼼마 사례 둘러보기</a>
           </div>
         </div>
-        <!-- <div class="right">
-          <img src="./src/img/casestudy_03_pic_01.jpg" alt="도심속 빌딩 사진">
-          <img src="./src/img/casestudy_03_pic_02.jpg" alt="사무실 안 도서관">
-        </div>         -->
+        <div class="right">
+          <div class="item">
+            <img src="./src/img/casestudy_03_pic_01.jpg" alt="도심속 빌딩 사진">
+            <div class="block"></div>
+          </div>
+          <div class="item">
+            <img src="./src/img/casestudy_03_pic_02.jpg" alt="사무실 안 도서관">
+            <div class="block"></div>
+          </div>
+        </div>        
       </div>
     </section>
-    <section class="guide-wrap">
+    <section class="guide-wrap" id="guide">
       <div class="title-wrap">
         <div class="line">
           <span class="block">BUILD</span>
@@ -273,11 +309,11 @@
             <form action="#">
               <div class="form-name">
                 <input type="text" name="name" required> 
-                <label for="name">name</label>
+                <label for="name" class="name-label">name</label>
               </div>
               <div class="form-email">
                 <input type="email" name="email" required>
-                <label for="email">e-mail</label>
+                <label for="email" class="email-label">e-mail</label>
               </div>
               <div class="form-agree">
                 <input type="checkbox" name="privacy" required>
@@ -320,12 +356,16 @@
         </div>
       </div>
     </section>
-  </main>
+  </main>  
+  <!-- contents 끝 -->
+  <!-- footer 시작 -->
   <footer class="footer-wrap">
     <div class="container">
       <div class="left">
-        <h1 class="logo"><a href="#">
-          <img src="./src/img/logo_footer.png" alt="로고"></a>
+        <h1 class="logo">
+          <a href="index.html"><span class="blind">FURSYS 홈로고</span>
+            <img src="./src/img/logo_w.png" alt="">
+          </a>
         </h1>
       </div>
       <div class="right">
@@ -339,9 +379,9 @@
       </div>
     </div>
   </footer>
+  <!-- footer 끝 -->
 
-  <!-- vandor freefix -->  
-  <script src="./src/js/prefixfree.min.js"></script>
+  <!-- js -->
   <script src="./src/js/main.js"></script>
 </body>
 </html>
