@@ -43,6 +43,7 @@ const $guideSwiperItem = document.querySelectorAll(".guide-wrap .slide-wrap .ite
 const $slideDotLi = document.querySelectorAll(".slide-dot li");
 const itemWidth = document.querySelector(".slide-wrap").offsetWidth;
 const itemLength = $guideSwiperItem.length;
+let setInt = setInterval(clickNextBtn, 3000);
 let pageIndex = 0;
 let currentIndex = 0;
 
@@ -293,13 +294,17 @@ function deleteNowClass() {
 function clickNextBtn() {
   moveSlide(currentIndex + 1);
   $guideSlideWrap.style.pointerEvents = "none";
-  blockClick()
+  blockClick();
+  clearInterval(setInt);
+  setInt = setInterval(clickNextBtn, 3000);
 }
 
 // 슬라이드 이전 버튼 기능
 function clickPrevBtn() {
   moveSlide(currentIndex - 1);
-  blockClick()
+  blockClick();
+  clearInterval(setInt);
+  setInt = setInterval(clickNextBtn, 3000);
 }
 
 // 슬라이드 오버클릭 막는 기능
@@ -309,6 +314,7 @@ function blockClick() {
     $guideSlideWrap.style.pointerEvents = "auto";
   }, 500);
 }
+
 
 // 인덱스 현재 페이지 기능
 for(let i = 0; i < itemLength; i++) {
@@ -354,7 +360,6 @@ function screenTouch(event) {
       endPoint = touch.clientX;
 
     const checkNum = startPoint - endPoint;
-    const checkNumAbs = Math.abs(checkNum);
     
     if (checkNum < 0) {
       clickPrevBtn()
@@ -369,6 +374,7 @@ function screenTouch(event) {
 window.onload = function(){
   setTimeout(AddClassShow, 100);
   makeClone();
+  setInt;
 }
 
 $menuBtn.addEventListener("click", openMenu);
