@@ -2,6 +2,10 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
 /* 공통 */
+html {
+  // scroll-behavior: smooth;
+}
+
 body {
   touch-action: pan-y;
 }
@@ -496,7 +500,7 @@ button {
   font-weight: 900;
   text-align: center;
   font-family: "Alexandria", sans-serif;
-  text-shadow: -15px 0px #000, 0px 15px #000, 15px 0px #000, 0px -15px #000;
+  text-shadow: -4px 0px #000, 0px 4px #000, 4px 0px #000, 0px -4px #000;
 }
 
 .bg .line {
