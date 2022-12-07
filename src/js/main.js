@@ -293,8 +293,6 @@ function deleteNowClass() {
 // 슬라이드 다음 버튼 기능
 function clickNextBtn() {
   moveSlide(currentIndex + 1);
-  $guideSlideWrap.style.pointerEvents = "none";
-  blockClick();
   clearInterval(setInt);
   setInt = setInterval(clickNextBtn, 3000);
 }
@@ -302,24 +300,25 @@ function clickNextBtn() {
 // 슬라이드 이전 버튼 기능
 function clickPrevBtn() {
   moveSlide(currentIndex - 1);
-  blockClick();
   clearInterval(setInt);
   setInt = setInterval(clickNextBtn, 3000);
 }
 
 // 슬라이드 오버클릭 막는 기능
-function blockClick() {
-  $guideSlideWrap.style.pointerEvents = "none";
-  setTimeout(function(){
-    $guideSlideWrap.style.pointerEvents = "auto";
-  }, 500);
-}
+// function blockClick() {
+//   $guideSlideWrap.style.pointerEvents = "none";
+//   setTimeout(function(){
+//     $guideSlideWrap.style.pointerEvents = "auto";
+//   }, 500);
+// }
 
 
 // 인덱스 현재 페이지 기능
 for(let i = 0; i < itemLength; i++) {
   $slideDotLi[i].addEventListener("click", function(){
     moveSlide(i);
+    clearInterval(setInt);
+    setInt = setInterval(clickNextBtn, 3000);
   });  
 };
 
