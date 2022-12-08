@@ -395,7 +395,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  font-size: max(3vw, 2.1428rem);
+  font-size: 8vw;
   color: #fff;
   font-weight: 900;
   text-align: center;
@@ -510,7 +510,7 @@ button {
 
 .bg .texts {
   color: #fff;
-  font-size: 9vw;
+  font-size: 13vw;
   font-weight: 900;
   text-align: center;
   font-family: "Alexandria", sans-serif;
