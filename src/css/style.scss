@@ -514,7 +514,7 @@ button {
 
 .bg .texts {
   color: #fff;
-  font-size: 13vw;
+  font-size: min(13vw, 11.25rem);
   font-weight: 900;
   text-align: center;
   font-family: "Alexandria", sans-serif;
