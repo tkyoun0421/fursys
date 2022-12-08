@@ -1300,6 +1300,7 @@ button {
   }
   .tag {
     font-size: 0.75rem;
+    padding: 0.2875rem;
   }
   .cnt02-wrap .subtitle-wrap {
     display: block;
