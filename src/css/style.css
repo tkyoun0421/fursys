@@ -1333,8 +1333,14 @@ button {
   .guide-wrap .consult-box .left::after {
     display: none;
   }
+  .footer-wrap .container {
+    display: block;
+  }
   .footer-wrap .left {
-    padding: 40px 10% 80px 0;
+    padding: 40px 10% 40px 0;
+  }
+  .footer-wrap .right {
+    padding: 0px 10% 40px 0;
   }
 }
 /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
