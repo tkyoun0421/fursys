@@ -2,6 +2,10 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap");
 /* 공통 */
+html {
+  font-size: 16px;
+}
+
 body {
   touch-action: pan-y;
 }
@@ -33,7 +37,7 @@ button {
   display: block;
   width: 100%;
   height: 50px;
-  line-height: 50px;
+  line-height: 3.125rem;
   text-align: center;
   z-index: 9;
 }
@@ -74,7 +78,7 @@ button {
   right: 80px;
   z-index: 990;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 20px;
   line-height: 1.375rem;
   font-weight: 700;
   vertical-align: middle;
@@ -148,7 +152,7 @@ button {
   top: 39px;
   right: 80px;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 700;
   font-family: "Alexandria", sans-serif;
 }
@@ -156,7 +160,7 @@ button {
 .header .menu ul {
   margin: 11rem 0 0 4rem;
   font-weight: 700;
-  font-size: clamp(30px, 2.5vw, 36px);
+  font-size: 2.25rem;
   font-family: "Alexandria", sans-serif;
 }
 
@@ -242,7 +246,7 @@ button {
 }
 
 .header .menu .case {
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: 1.125rem;
   vertical-align: top;
 }
 
@@ -267,13 +271,13 @@ button {
   bottom: 30px;
   right: 30px;
   z-index: 990;
-  font-size: clamp(1rem, 1.3194vw, 1.1875rem);
+  font-size: 1.1875rem;
   background: #000;
-  width: clamp(16.25rem, 22vw, 20.625rem);
+  width: 20.625rem;
   height: 6rem;
   border-radius: 3rem;
   border: 1px solid #fff;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
 .header .guide-btn a {
@@ -327,6 +331,10 @@ button {
   }
 }
 .header .guide-btn a {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
   display: flex;
   width: 100%;
   height: 100%;
@@ -383,7 +391,7 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  font-size: clamp(2.5rem, 3.5vw, 5rem);
+  font-size: max(3vw, 2.1428rem);
   color: #fff;
   font-weight: 900;
   text-align: center;
@@ -455,10 +463,14 @@ button {
 }
 
 .mask {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -466,8 +478,8 @@ button {
   height: 100vh;
   background: #000;
   color: #fff;
-  font-size: clamp(2.5rem, 10vw, 125rem);
-  line-height: clamp(2.5rem, 10vw, 125rem);
+  font-size: 6vw;
+  line-height: 100%;
   font-weight: 900;
   mix-blend-mode: multiply;
   font-family: "Alexandria", sans-serif;
@@ -476,6 +488,11 @@ button {
 }
 
 .bg {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   width: 100%;
   height: 100vh;
   background-image: url("../img/mod_cnt01_bg.png");
@@ -485,12 +502,11 @@ button {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  display: flex;
 }
 
 .bg .texts {
   color: #fff;
-  font-size: clamp(5rem, 11vw, 14.375rem);
+  font-size: 9vw;
   font-weight: 900;
   text-align: center;
   font-family: "Alexandria", sans-serif;
@@ -519,11 +535,15 @@ button {
 
 /* cnt02 */
 .cnt02-sub {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   width: 90%;
   max-width: 1440px;
   height: 1080px;
   margin: 0 auto;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
@@ -545,7 +565,7 @@ button {
   margin: 20px 0 0 5px;
   padding: 0.6875rem;
   font-weight: 700;
-  font-size: clamp(0.75rem, 0.9028vw, 0.9375rem);
+  font-size: 0.9375rem;
   display: inline-block;
 }
 
@@ -559,6 +579,10 @@ button {
 }
 
 .cnt02-wrap .subtitle-wrap .line {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
   display: flex;
   overflow: hidden;
 }
@@ -579,7 +603,7 @@ button {
 }
 
 .subtitle-wrap .block {
-  font-size: clamp(3.75rem, 4.8611vw, 5rem);
+  font-size: 4.0625rem;
   font-weight: 900;
   padding-right: 15px;
   transform: translateY(100%);
@@ -614,7 +638,7 @@ button {
 
 .cnt02-wrap .des-text {
   margin-top: 90px;
-  font-size: clamp(0.75rem, 0.9722vw, 1rem);
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -641,7 +665,7 @@ button {
   display: inline-block;
   width: 100%;
   color: #2757A4;
-  font-size: clamp(0.8125rem, 0.9722vw, 0.9375rem);
+  font-size: 0.9375rem;
   line-height: 3.75rem;
   font-weight: 700;
 }
@@ -681,6 +705,10 @@ button {
 }
 
 .cnt02-wrap .right {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
   display: flex;
   width: calc(100% - 400px);
   height: 100%;
@@ -791,11 +819,15 @@ button {
 
 /* guide-wrap */
 .guide-wrap {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   width: 90%;
   max-width: 1440px;
   height: 100vh;
   margin: 0 auto;
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -807,9 +839,9 @@ button {
 
 .guide-wrap .block {
   display: inline-block;
-  font-size: clamp(4.125rem, 5.3472vw, 5.5rem);
+  font-size: 5.5rem;
   font-weight: 900;
-  line-height: clamp(4.125rem, 5.3472vw, 5.5rem);
+  line-height: 5.5rem;
   padding-right: 20px;
   transform: translateY(100%);
 }
@@ -839,6 +871,10 @@ button {
 }
 
 .guide-wrap .container {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -868,7 +904,7 @@ button {
   border: 2px solid #fff;
   border-bottom: 2px solid #000;
   border-radius: 3px;
-  line-height: 40px;
+  line-height: 2.5rem;
   color: #000;
   transition: all 0.3s ease;
   width: 400px;
@@ -896,12 +932,12 @@ button {
 .guide-wrap label:not(.form-agree label) {
   position: absolute;
   left: 0px;
-  line-height: 40px;
+  line-height: 2.5rem;
   padding: 10px;
   color: #000;
   font-size: 1.125rem;
   font-weight: 700;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .guide-wrap .form-name input:focus + label, .guide-wrap .form-name input:valid + label {
@@ -925,7 +961,7 @@ button {
 }
 
 .guide-wrap .msg {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .guide-wrap .msg a {
@@ -936,9 +972,9 @@ button {
   width: 320px;
   margin: 0 auto;
   text-align: center;
-  font-size: 15px;
-  line-height: 56px;
-  border-radius: 30px;
+  font-size: 0.9375rem;
+  line-height: 3.5rem;
+  border-radius: 1.875rem;
   margin-top: 30px;
 }
 
@@ -963,7 +999,7 @@ button {
 .guide-wrap .consult-box {
   margin-top: 60px;
   border-top: 2px solid #000;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -987,7 +1023,7 @@ button {
 .guide-wrap .consult-box a {
   display: inline-block;
   width: 100%;
-  line-height: 80px;
+  line-height: 5rem;
   transition: all 0.3s ease;
 }
 
@@ -1040,9 +1076,13 @@ button {
 }
 
 .guide-wrap .slide-wrap .item-wrap {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   position: absolute;
   width: 300%;
-  display: flex;
   justify-content: flex-start;
 }
 
@@ -1054,17 +1094,10 @@ button {
   width: 100%;
 }
 
-.guide-wrap .slide-wrap a {
-  display: block;
-  width: 100%;
-}
-
 .guide-wrap .slide-wrap img {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
 }
 
 .guide-wrap .slide-wrap .btns button {
@@ -1085,11 +1118,15 @@ button {
 }
 
 .guide-wrap .slide-dot {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
+  display: flex;
   position: absolute;
   bottom: -30px;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
   justify-content: space-between;
   width: 50px;
   margin: 0 auto;
@@ -1114,6 +1151,10 @@ button {
 }
 
 .footer-wrap .container {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex; /* ie 10 */
   display: flex;
   justify-content: flex-start;
   width: 90%;
@@ -1129,7 +1170,160 @@ button {
 .footer-wrap .right {
   padding: 40px 0 120px 5%;
   color: #fff;
-  font-size: 13px;
+  font-size: 0.8125rem;
   opacity: 0.8;
   width: 100%;
-} /*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */
+}
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 15px;
+  }
+  .header .icon {
+    vertical-align: middle;
+  }
+  .cnt02-sub {
+    flex-direction: column;
+    position: relative;
+    padding: 150px 0;
+    height: auto;
+  }
+  .cnt02-wrap .left {
+    width: 100%;
+  }
+  .cnt02-wrap .subtitle-wrap {
+    display: flex;
+    width: 100%;
+  }
+  .cnt02-wrap .des-text {
+    margin-top: 350px;
+    font-size: 0.875rem;
+  }
+  .cnt02-wrap .right {
+    position: absolute;
+    top: 465px;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  .cnt02-01 .item:nth-child(1) {
+    top: auto;
+  }
+  .cnt02-01 .right .item:nth-child(2) {
+    top: auto;
+    left: auto;
+  }
+  .cnt02-01 .right .item:nth-child(3) {
+    top: auto;
+    left: auto;
+  }
+  .cnt02-wrap .right .item {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+    margin: 0 10px;
+  }
+  .cnt02-wrap .right .item:nth-child(1) {
+    margin-left: 0;
+  }
+  .cnt02-wrap .right .item img {
+    width: 100%;
+    height: 100%;
+  }
+  .cnt02-02 .right .item:nth-child(1) {
+    top: auto;
+    left: auto;
+  }
+  .cnt02-02 .right .item:nth-child(2) {
+    top: auto;
+    left: auto;
+  }
+  .cnt02-03 .right .item:nth-child(1) {
+    top: auto;
+    left: auto;
+  }
+  .cnt02-03 .right .item:nth-child(2) {
+    top: auto;
+    left: auto;
+  }
+  .guide-wrap {
+    padding: 150px 0;
+    height: auto;
+  }
+  .guide-wrap .container {
+    flex-direction: column;
+  }
+  .guide-wrap .left {
+    width: 100%;
+  }
+  .guide-wrap .container > .right {
+    width: 100%;
+    margin-top: 60px;
+  }
+  .guide-wrap .right .slide-wrap {
+    margin: 0 auto;
+  }
+  .guide-wrap form div:not(:last-child) {
+    display: flex;
+  }
+  .guide-wrap input:not(.form-agree input) {
+    width: 100%;
+  }
+  .guide-wrap .consult-box a {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  .header .icon {
+    margin-left: 0.3125rem;
+  }
+  .header .menu-btn {
+    right: 50px;
+  }
+  .header .menu {
+    width: 100%;
+  }
+  .header .menu button {
+    right: 50px;
+  }
+  .header .menu .case {
+    font-size: 1.125rem;
+  }
+  .header .menu ul {
+    font-size: 1.5rem;
+    margin: 6.5rem 0 0 1rem;
+  }
+  .header .guide-btn {
+    display: none;
+  }
+  .subtitle-wrap .block {
+    font-size: 3.75rem;
+  }
+  .tag {
+    font-size: 0.75rem;
+  }
+  .cnt02-wrap .subtitle-wrap {
+    display: block;
+  }
+  .guide-wrap .block {
+    font-size: 2.5rem;
+    line-height: 100%;
+  }
+  .guide-wrap .container > .right {
+    display: none;
+  }
+  .guide-wrap .consult-box .left {
+    padding: 0;
+  }
+  .guide-wrap .consult-box .left::after {
+    display: none;
+  }
+  .footer-wrap .left {
+    padding: 40px 10% 80px 0;
+  }
+}
+/*# sourceMappingURL=style.css.map *//*# sourceMappingURL=style.css.map */

@@ -331,10 +331,10 @@ function mobileCheck() {
 if (mobileCheck()) {
   $guideSlideWrap.addEventListener("touchstart", screenTouch, true);
   $guideSlideWrap.addEventListener("touchend", screenTouch, true);
-}
+} 
 
 function screenTouch(event) {
-  
+  // console.log(event);
   var type = null;
   var touch = null;
   
