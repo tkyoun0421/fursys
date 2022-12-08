@@ -66,6 +66,7 @@ button {
   left: 30px;
   z-index: 999;
   transition: all 0.3s ease;
+  -webkit-transform: translateZ(0);
 }
 
 .header .text {
@@ -79,6 +80,7 @@ button {
   transform-origin: left bottom;
   font-weight: 700;
   transition: color 0.3s ease;
+  -webkit-transform: translateZ(0);
 }
 
 .header .text.black {
@@ -97,6 +99,7 @@ button {
   vertical-align: middle;
   font-family: "Alexandria", sans-serif;
   transition: all 0.3s ease;
+  -webkit-transform: translateZ(0);
 }
 
 .header .menu-btn .icon img {
@@ -153,6 +156,7 @@ button {
   background: #000;
   transform: translateX(100%);
   visibility: hidden;
+  -webkit-transform: translateZ(0);
 }
 
 .header .menu.show {
@@ -297,6 +301,7 @@ button {
   border-radius: 3rem;
   border: 1px solid #fff;
   transition: opacity 0.3s ease;
+  -webkit-transform: translateZ(0);
 }
 
 .header .guide-btn a {
