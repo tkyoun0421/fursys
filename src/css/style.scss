@@ -276,9 +276,14 @@ button {
   color: #EB6D65;
 }
 
+.header .menu .menu-name {
+  color: #fff;
+}
+
 .header .menu .case + .menu-name {
   margin-left: 10px;
 }
+
 
 .header .guide-btn {
   position: fixed;
@@ -702,7 +707,7 @@ button {
 
 .cnt02-wrap .image-wrap {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 400px);
   height: 100%;
   top: 0;
   right: 0;
@@ -1185,7 +1190,7 @@ button {
     display: flex;
     justify-content: flex-start;
     margin-top: 20px;
-    height: 180px;
+    width: 100%;
   }
 
   .cnt02-wrap .image-wrap .item {
@@ -1290,12 +1295,13 @@ button {
   }
 
   .header .menu .case {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .header .menu ul {
-    font-size: 1.125rem;
-    margin: 6.5rem 0 0 1rem;
+    font-size: 1.375rem;
+    margin: 6.5rem 0 0;
+    padding: 0 0 0 10%;
   }
 
   .header .guide-btn {
