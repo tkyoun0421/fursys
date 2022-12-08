@@ -1277,6 +1277,10 @@ button {
   html {
     font-size: 16px;
   }
+  .header .logo {
+    top: 15px;
+    left: 15px;
+  }
   .header .icon {
     margin-left: 0.3125rem;
   }
